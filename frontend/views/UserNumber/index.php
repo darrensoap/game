@@ -16,8 +16,9 @@
       //document.write(Math.floor(Math.random() * (99 - 10) + 10));
       if (n==1) {
         document.getElementById("result1").innerHTML = ans
+        var ans1;
         ans = ans1;
-        return ans1;
+        return showNumber(ans1);
       }else if (n==2) {
         document.getElementById("result2").innerHTML = ans
       }else {
@@ -25,13 +26,10 @@
       }
     }
 
-    function showNumber(){
-
+    function showNumber(n){
+      console.log(n);
     }
   </script>
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
 </head>
 
 <body>
