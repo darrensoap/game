@@ -10,6 +10,7 @@
   <title>The HTML5 Herald</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
+<<<<<<< HEAD
   <script>
     function generateNumber(n){
       ans = Math.floor(Math.random() * (99 - 0) + 0);
@@ -30,6 +31,9 @@
       console.log(n);
     }
   </script>
+=======
+
+>>>>>>> a22cbbfa1f45b30fcb18f387d40d0adbe9ecb405
 </head>
 
 <body>
