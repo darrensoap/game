@@ -1,0 +1,39 @@
+body {
+  background-color: orange;
+}
+
+#fNum {
+  color: red;
+}
+
+#sNum {
+  color: blue;
+}
+
+#tNum {
+  color: green;
+}
+
+#result1 {
+  color: red;
+}
+
+#result2 {
+  color: blue;
+}
+
+#result3 {
+  color: green;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.results {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+}
