@@ -22,8 +22,8 @@ AppAsset::register($this);
   <div class="lantern3">
     <img id="tNum" alt="lantern3" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(3)"/>
   </div>
-    <div class="result1"><span id="result1">empty</span></div>
-    <div class="result2"><span id="result2">empty</span></div>
-    <div class="result3"><span id="result3">empty</span></div>
+    <div class="result1"><span id="result1"></span></div>
+    <div class="result2"><span id="result2"></span></div>
+    <div class="result3"><span id="result3"></span></div>
 </body>
 </html>

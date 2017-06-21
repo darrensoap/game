@@ -11,16 +11,25 @@ function generateNumber(n){
     ans = Math.floor(Math.random() * (99 - 0) + 0);
     //document.write(Math.floor(Math.random() * (99 - 10) + 10));
     if (n==1) {
+      if(ans.toString().length < 2){
+          ans= "0"+ans;
+        }
         document.getElementById("result1").innerHTML = ans;
         document.getElementById("fNum").disabled = true;
         first= ans;
         sendNumber();
     }else if (n==2) {
+      if(ans.toString().length < 2){
+          ans= "0"+ans;
+        }
         document.getElementById("result2").innerHTML = ans;
         document.getElementById("sNum").disabled = true;
         second = ans;
         sendNumber();
     }else {
+      if(ans.toString().length < 2){
+          ans= "0"+ans;
+        }
         document.getElementById("result3").innerHTML = ans;
         document.getElementById("tNum").disabled = true;
         third = ans;
@@ -62,5 +71,16 @@ function sendNumber()
 $(document).ready(function(){
   $("#fNum").click(function(){
     $("#fNum").fadeOut();
+  });
+  $("#sNum").click(function(){
+    $("#sNum").fadeOut();
+  });
+  $("#tNum").click(function(){
+    $("#tNum").fadeOut();
+  });
+  $("img").hover(function(){
+    $(this).css("opacity", "0.5");
+    }, function(){
+    $(this).css("opacity", "1");
   });
 });

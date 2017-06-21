@@ -22,24 +22,27 @@ body {
 
 .result1 {
   position: absolute;
-  top: 55%;
-  left: 35%;
-  font-size: large;
+  top: 50%;
+  left: 34%;
+  font-size: 100px;
   color: white;
+  font-family:  "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .result2 {
   position: absolute;
-  top: 55%;
-  left: 45%;
-  font-size: large;
+  top: 50%;
+  left: 44%;
+  font-size: 100px;
   color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .result3 {
   position: absolute;
-  top: 55%;
-  left: 55%;
-  font-size: large;
+  top: 50%;
+  left: 54%;
+  font-size: 100px;
   color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
