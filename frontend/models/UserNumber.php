@@ -47,6 +47,7 @@ class UserNumber extends \yii\db\ActiveRecord
             'tNum' => 'T Num',
             'userid' => 'Userid',
             'isOn' => 'Is On',
+            'date' => 'Date',
             'time' => 'Time',
         ];
     }

@@ -43,6 +43,8 @@ class UsernumberController extends \yii\web\Controller
             $model->sNum = $data['snum'];
             $model->tNum = $data['tnum'];
             $model->userid = Yii::$app->user->identity->id;
+            $model->date = date('Y-m-d');
+            $model->time = date('h:i:s');
             $model->isOn = 1;
             $model->save();
         }

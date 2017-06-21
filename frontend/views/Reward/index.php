@@ -1,9 +1,10 @@
 <?php
-/* @var $this yii\web\View */
+    use yii\bootstrap\ActiveForm;
+	use yii\helpers\Html;
 ?>
 <h1>reward/index</h1>
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+<?php ActiveForm::begin(); ?>
+<?php echo Html::submitButton('安全登录',["class" => "le-button huge"]); ?>
+<?php ActiveForm::end() ;?>
+
