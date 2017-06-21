@@ -74,7 +74,7 @@ function sendNumber()
  **/
 function showNotice()
 {
-    $('#finishNotic').toggle('slow',function(){});
+    $('#finishNotice').toggle(2000);
 }
 
 $(document).ready(function(){
