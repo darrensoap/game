@@ -15,6 +15,10 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => ',',
+       ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

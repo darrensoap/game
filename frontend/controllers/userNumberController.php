@@ -15,7 +15,20 @@ class UsernumberController extends \yii\web\Controller
         {
             return $this->redirect(['site/login']);
         }
-        $model = new UserNumber;
+        $today = date('Y-m-d');
+        $user = UserNumber::find()->where('userid = :id',[':id' => Yii::$app->user->identity->id])->one();
+        if(empty($user))
+        {
+             $model = new UserNumber;
+        }
+        else{
+            $userDate = Yii::$app->formatter->asDate($user->time, 'yyyy-MM-dd');
+            if($userDate == $today)
+            {
+                return $this->redirect(['site/index']);
+            } 
+        }
+       
         if(Yii::$app->request->isAjax){
             $data = Yii::$app->request->post();
             $model->fNum = $data['fnum'];
