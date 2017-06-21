@@ -78,7 +78,17 @@ $(document).ready(function(){
   $("#tNum").click(function(){
     $("#tNum").fadeOut();
   });
-  $("img").hover(function(){
+  $("#fNum").hover(function(){
+    $(this).css("opacity", "0.5");
+    }, function(){
+    $(this).css("opacity", "1");
+  });
+  $("#sNum").hover(function(){
+    $(this).css("opacity", "0.5");
+    }, function(){
+    $(this).css("opacity", "1");
+  });
+  $("#tNum").hover(function(){
     $(this).css("opacity", "0.5");
     }, function(){
     $(this).css("opacity", "1");

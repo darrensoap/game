@@ -13,6 +13,9 @@ AppAsset::register($this);
 </head>
 
 <body>
+  <div class="scroll">
+    <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
+  </div>
   <div class="lantern1">
     <img id="fNum" alt="lantern1" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(1)"/>
   </div>
