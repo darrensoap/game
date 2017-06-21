@@ -15,6 +15,11 @@ class UsernumberController extends \yii\web\Controller
         {
             return $this->redirect(['site/login']);
         }
+        /*
+            verify wheter user finished today change
+            if finshid back to index
+            else create new model
+         */
         $today = date('Y-m-d');
         $user = UserNumber::find()->where('userid = :id',[':id' => Yii::$app->user->identity->id])->one();
         if(empty($user))
@@ -39,7 +44,7 @@ class UsernumberController extends \yii\web\Controller
             $model->tNum = $data['tnum'];
             $model->userid = Yii::$app->user->identity->id;
             $model->isOn = 1;
-            $model->save(false);
+            $model->save();
         }
         return $this->render('index');
     }

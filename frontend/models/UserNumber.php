@@ -32,8 +32,6 @@ class UserNumber extends \yii\db\ActiveRecord
     {
         return [
             [['fNum', 'sNum', 'tNum', 'userid'], 'integer'],
-            [['isOn'], 'string'],
-            [['time'], 'safe'],
         ];
     }
 
