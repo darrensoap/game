@@ -13,23 +13,25 @@ AppAsset::register($this);
 </head>
 
 <body>
-  <div class="scroll">
-    <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
-  </div>
-  <div class="lantern1">
-    <img id="fNum" alt="lantern1" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(1)"/>
-  </div>
-  <div class="lantern2">
-    <img id="sNum" alt="lantern2" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(2)"/>
-  </div>
-  <div class="lantern3">
-    <img id="tNum" alt="lantern3" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(3)"/>
-  </div>
-    <div class="result1"><span id="result1"></span></div>
-    <div class="result2"><span id="result2"></span></div>
-    <div class="result3"><span id="result3"></span></div>
-  <div id="finishNotice">
-      <p>You have finshied your chance. Please wait the result come out.Thank You! </p>
+  <div class="gamecontainer">
+    <div class="scroll">
+      <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
+    </div>
+    <div class="lantern1">
+      <img id="fNum" alt="lantern1" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(1)"/>
+    </div>
+    <div class="lantern2">
+      <img id="sNum" alt="lantern2" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(2)"/>
+    </div>
+    <div class="lantern3">
+      <img id="tNum" alt="lantern3" src="<?php echo Yii::$app->params['imagepath'].'/lantern1.PNG'?>" onclick="generateNumber(3)"/>
+    </div>
+      <div class="result1"><span id="result1"></span></div>
+      <div class="result2"><span id="result2"></span></div>
+      <div class="result3"><span id="result3"></span></div>
+      <div id="finishNotice">
+          <p>You have finshied your chance. Please wait the result come out.Thank You! </p>
+      </div>
   </div>
 </body>
 </html>

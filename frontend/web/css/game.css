@@ -2,36 +2,42 @@ body {
   background: url(../img/background.jpg);
 }
 
+.gamecontainer {
+  position: relative;
+  height: 800px;
+  width: 1000px;
+}
+
 #scroll {
   position: absolute;
   height: auto;
-  width: 850px;
-  top: 20%;
-  left: 26%;
+  width: 900px;
+  top: 100px;
+  left: 70px;
 }
 
 .lantern1 {
   position: absolute;
-  top: 40%;
-  left: 30%;
+  top: 300px;
+  left: 170px;
 }
 
 .lantern2 {
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 300px;
+  left: 370px;
 }
 
 .lantern3 {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 300px;
+  left: 570px;
 }
 
 .result1 {
   position: absolute;
-  top: 50%;
-  left: 34%;
+  top: 400px;
+  left: 250px;
   font-size: 100px;
   color: white;
   font-family:  "Trebuchet MS", Helvetica, sans-serif;
@@ -39,8 +45,8 @@ body {
 
 .result2 {
   position: absolute;
-  top: 50%;
-  left: 44%;
+  top: 400px;
+  left: 450px;
   font-size: 100px;
   color: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -48,8 +54,8 @@ body {
 
 .result3 {
   position: absolute;
-  top: 50%;
-  left: 54%;
+  top: 400px;
+  left: 650px;
   font-size: 100px;
   color: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -61,6 +67,5 @@ body {
   color: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 30px;
-  top: 80%;
-  left: 25%;
+  top: 90%;
 }
