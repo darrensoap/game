@@ -59,7 +59,7 @@ function sendNumber()
             _csrf: '<?=Yii::$app->request->getCsrfToken()?>',
         },
         success: function (data) {
-            console.log(data);
+            console.log(data.search);
             showNotice();
        },
        error: function (request, status, error) {
