@@ -25,3 +25,9 @@ function generateNumber(n){
         }
     });
 }
+
+$(document).ready(function(){
+  $("#fNum").click(function(){
+    $("#fNum").fadeOut();
+  });
+});
