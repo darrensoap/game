@@ -26,7 +26,10 @@ class UsernumberController extends \yii\web\Controller
             if($userDate == $today)
             {
                 return $this->redirect(['site/index']);
-            } 
+            }
+            else{
+                 $model = new UserNumber; 
+            }
         }
        
         if(Yii::$app->request->isAjax){
