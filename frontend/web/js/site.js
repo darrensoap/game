@@ -77,6 +77,9 @@ function showNotice()
     $('#finishNotice').toggle(2000);
 }
 
+/**
+    jquery for animation
+ **/
 $(document).ready(function(){
   $("#fNum").click(function(){
     $("#fNum").fadeOut();
