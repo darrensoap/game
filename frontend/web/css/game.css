@@ -54,3 +54,13 @@ body {
   color: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+
+#finishNotice {
+  display: none;
+  position: absolute;
+  color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 30px;
+  top: 80%;
+  left: 25%;
+}

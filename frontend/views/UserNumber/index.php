@@ -28,8 +28,8 @@ AppAsset::register($this);
     <div class="result1"><span id="result1"></span></div>
     <div class="result2"><span id="result2"></span></div>
     <div class="result3"><span id="result3"></span></div>
-  <div id="finishNotic" style="display:none;">
-      <p>You have finshied your chance. Please wait the result come out.Thank You </p>
+  <div id="finishNotice">
+      <p>You have finshied your chance. Please wait the result come out.Thank You! </p>
   </div>
 </body>
 </html>
