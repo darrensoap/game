@@ -1,5 +1,7 @@
 <?php
 use frontend\assets\AppAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
 AppAsset::register($this);
 ?>
 <!doctype html>
@@ -7,17 +9,21 @@ AppAsset::register($this);
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 
 <body>
-  <div class="button">
-    <button id="fNum" onclick="generateNumber(1)" type="button" value="Press Here">Press Here</button>
-    <button id="sNum" onclick="generateNumber(2)" type="button" value="Press Here">Press Here</button>
-    <button id="tNum" onclick="generateNumber(3)" type="button" value="Press Here">Press Here</button>
+  <div class="lantern1">
+    <img id="fNum" alt="lantern1" src="assets/img/lantern1.PNG" onclick="generateNumber(1)"/>
   </div>
-  <div class="results">
-    <span id="result1">empty</span><span id="result2">empty</span><span id="result3">empty</span>
+  <div class="lantern2">
+    <img id="sNum" alt="lantern2" src="assets/img/lantern1.PNG" onclick="generateNumber(2)"/>
   </div>
+  <div class="lantern3">
+    <img id="tNum" alt="lantern3" src="assets/img/lantern1.PNG" onclick="generateNumber(3)"/>
+  </div>
+    <div class="result1"><span id="result1">empty</span></div>
+    <div class="result2"><span id="result2">empty</span></div>
+    <div class="result3"><span id="result3">empty</span></div>
 </body>
 </html>

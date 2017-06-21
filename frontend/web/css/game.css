@@ -2,38 +2,44 @@ body {
   background: url(../img/background.jpg);
 }
 
-#fNum {
-  color: red;
-}
-
-#sNum {
-  color: blue;
-}
-
-#tNum {
-  color: green;
-}
-
-#result1 {
-  color: red;
-}
-
-#result2 {
-  color: blue;
-}
-
-#result3 {
-  color: green;
-}
-
-.button {
+.lantern1 {
   position: absolute;
-  top: 50%;
+  top: 40%;
+  left: 30%;
+}
+
+.lantern2 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.lantern3 {
+  position: absolute;
+  top: 40%;
   left: 50%;
 }
 
-.results {
+.result1 {
   position: absolute;
   top: 55%;
-  left: 50%;
+  left: 35%;
+  font-size: large;
+  color: white;
+}
+
+.result2 {
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  font-size: large;
+  color: white;
+}
+
+.result3 {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  font-size: large;
+  color: white;
 }
