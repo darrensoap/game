@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -31,7 +31,6 @@ class UserNumber extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fNum', 'sNum', 'tNum', 'userid', 'isOn'], 'required'],
             [['fNum', 'sNum', 'tNum', 'userid'], 'integer'],
             [['isOn'], 'string'],
             [['time'], 'safe'],
