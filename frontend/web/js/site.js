@@ -59,13 +59,22 @@ function sendNumber()
             _csrf: '<?=Yii::$app->request->getCsrfToken()?>',
         },
         success: function (data) {
-          console.log(data.search);
+            console.log(data);
+            showNotice();
        },
        error: function (request, status, error) {
         alert(request.responseText);
         }
     });
     }
+}
+
+/**
+    dimiss the notification when user finshid select all
+ **/
+function showNotice()
+{
+    $('#finishNotic').toggle('slow',function(){});
 }
 
 $(document).ready(function(){
