@@ -27,7 +27,7 @@ class UsernumberController extends \yii\web\Controller
              $model = new UserNumber;
         }
         else{
-            $userDate = $user->date;
+            $userDate = Yii::$app->formatter->asDate($user->time, 'yyyy-MM-dd');
             if($userDate == $today)
             {
                 return $this->redirect(['site/index']);
@@ -43,8 +43,6 @@ class UsernumberController extends \yii\web\Controller
             $model->sNum = $data['snum'];
             $model->tNum = $data['tnum'];
             $model->userid = Yii::$app->user->identity->id;
-            $model->date = date('Y-m-d');
-            $model->time = date('G:i:s');
             $model->isOn = 1;
             $model->save();
         }
