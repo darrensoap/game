@@ -27,9 +27,12 @@ class RewardController extends \yii\web\Controller
             $reward = [];
             /*
                 * merge alluser number together
-                * verify wheter user get first price
-                * if got more user get same first price
-                * arrange using who come who first
+                * in condition of ranking
+                * - 1st three correct with firstprice in asscending order
+                * - 2rd three random correct with firstprice 
+                * - 3th two random correct in firstprice
+                * - consalation one random correct in firstprice
+                * verify wheter user get which ranking
             */
             foreach($allUser as $k=>$userPrice)
             {
@@ -38,21 +41,25 @@ class RewardController extends \yii\web\Controller
                 {
                     $reward[$k]['id'] = $userPrice->userid;
                     $reward[$k]['name'] = 'First Price';
+                    $reward[$k]['ranking'] = 1;
                     $reward[$k]['time'] = $userPrice->time;
 
                 } else if((substr_count($mergerUsernum, $randomFirst) > 0) && (substr_count($mergerUsernum, $randomSecond) > 0) && (substr_count($mergerUsernum, $randomLst) > 0) ){
-                  $reward[$k]['id'] = $userPrice->userid;
-                  $reward[$k]['name'] = 'Second Price';
-                  $reward[$k]['time'] = $userPrice->time;
+                    $reward[$k]['id'] = $userPrice->userid;
+                    $reward[$k]['name'] = 'Second Price';
+                    $reward[$k]['ranking'] = 2;
+                    $reward[$k]['time'] = $userPrice->time;
                 }
                 else if ((substr_count($mergerUsernum, $randomFirst) > 0) && (substr_count($mergerUsernum, $randomSecond) > 0)){
-                  $reward[$k]['id'] = $userPrice->userid;
-                  $reward[$k]['name'] = 'Third Price';
-                  $reward[$k]['time'] = $userPrice->time;
+                    $reward[$k]['id'] = $userPrice->userid;
+                    $reward[$k]['name'] = 'Third Price';
+                    $reward[$k]['ranking'] = 3;
+                    $reward[$k]['time'] = $userPrice->time;
                 }else if ((substr_count($mergerUsernum, $randomFirst) > 0 )) {
-                  $reward[$k]['id'] = $userPrice->userid;
-                  $reward[$k]['name'] = 'Consolation Price';
-                  $reward[$k]['time'] = $userPrice->time;
+                    $reward[$k]['id'] = $userPrice->userid;
+                    $reward[$k]['name'] = 'Consolation Price';
+                    $reward[$k]['ranking'] = 4;
+                    $reward[$k]['time'] = $userPrice->time;
                 }
             }
 
