@@ -23,7 +23,7 @@ class RewardController extends \yii\web\Controller
             $randomSecond = 85;
             $randomLst = 49;
             $firstPrice = $randomFirst.'.'.$randomSecond.'.'.$randomLst;
-            
+
             $reward = [];
             /*
                 * merge alluser number together
@@ -39,11 +39,23 @@ class RewardController extends \yii\web\Controller
                     $reward[$k]['id'] = $userPrice->userid;
                     $reward[$k]['name'] = 'First Price';
                     $reward[$k]['time'] = $userPrice->time;
+
+                } else if((substr_count($mergerUsernum, $randomFirst) > 0) && (substr_count($mergerUsernum, $randomSecond) > 0) && (substr_count($mergerUsernum, $randomLst) > 0) ){
+                  $reward[$k]['id'] = $userPrice->userid;
+                  $reward[$k]['name'] = 'Second Price';
+                  $reward[$k]['time'] = $userPrice->time;
                 }
-                
-                if()
+                else if ((substr_count($mergerUsernum, $randomFirst) > 0) && (substr_count($mergerUsernum, $randomSecond) > 0)){
+                  $reward[$k]['id'] = $userPrice->userid;
+                  $reward[$k]['name'] = 'Third Price';
+                  $reward[$k]['time'] = $userPrice->time;
+                }else if ((substr_count($mergerUsernum, $randomFirst) > 0 )) {
+                  $reward[$k]['id'] = $userPrice->userid;
+                  $reward[$k]['name'] = 'Consolation Price';
+                  $reward[$k]['time'] = $userPrice->time;
+                }
             }
-        
+
             var_dump($reward);exit;
         }
         return $this->render('index');
