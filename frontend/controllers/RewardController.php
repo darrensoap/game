@@ -14,10 +14,10 @@ class RewardController extends \yii\web\Controller
     {
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
-        //$userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
-        $arrangeUser = $this->Sorting($userReward);
+        $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
+        //$arrangeUser = $this->Sorting($userReward);
       
-        var_dump($arrangeUser);exit;
+        //var_dump($userReward);exit;
 
         if(Yii::$app->request->isAjax)
         {
