@@ -13,6 +13,7 @@ AppAsset::register($this);
 </head>
 
 <body>
+  <p id="timer"></p>
   <div class="gamecontainer">
     <div class="scroll">
       <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
