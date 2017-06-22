@@ -13,24 +13,30 @@ class RewardController extends \yii\web\Controller
     {
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
-        /* 
-            $sizeReward = count($reward);
-            for($i=0 ; $i<$sizeReward ; $i++)
+        $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
+       
+        $sizeReward = count($userReward);
+        /*
+         *storing by ranking
+         */
+        for($i=0 ; $i<$sizeReward ; $i++)
+        {
+            for($j=0 ; $j<$sizeReward ; $j++)
             {
-                for($j=0 ; $j<$sizeReward ; $j++)
+                if($userReward[$i]['rewardStatus'] < $userReward[$j]['rewardStatus'] )
                 {
-                    if($reward[$i]['ranking'] < $reward[$j]['ranking'] )
-                    {
-                        $temp = $reward[$i];
-                        $reward[$i] = $reward[$j];
-                        $reward[$j] = $temp;
-                    }
+                    $temp = $userReward[$i];
+                    $userReward[$i] = $userReward[$j];
+                    $userReward[$j] = $temp;
                 }
             }
-            */
+        }
+        
+        //var_dump($userReward);exit;
+        
         if(Yii::$app->request->isPost)
         {
-            $allUser = UserNumber::find()->where(['between', 'time', $yesterday, $today])->all();
+            $allUser = UserNumber::find()->where(['between', 'time', $yesterday, $today])->orderBy('time')->all();
             //$randomFirst = rand(1,99);
             //$randomSecond = rand(1,99);
             //$randomLst = rand(1,99);
