@@ -91,7 +91,7 @@ class RewardController extends \yii\web\Controller
 
             foreach($reward as $data)
             {
-                 $model = new Reward;
+                $model = new Reward;
                 $model->price = $data['price'];
                 $model->rewardStatus = $data['ranking'];
                 $model->userid = $data['id'];
