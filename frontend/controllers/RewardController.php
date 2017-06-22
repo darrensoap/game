@@ -40,8 +40,12 @@ class RewardController extends \yii\web\Controller
                     $reward[$k]['name'] = 'First Price';
                     $reward[$k]['time'] = $userPrice->time;
                 }
-                
-                if()
+                elseif(preg_match('/$userPrice->fNum/',$firstPrice ) && preg_match('/$userPrice->sNum/',$firstPrice)  && preg_match('/$userPrice->tNum/',$firstPrice ))
+                {
+                    $reward[$k]['id'] = $userPrice->userid;
+                    $reward[$k]['name'] = 'Second Price';
+                    $reward[$k]['time'] = $userPrice->time;
+                }
             }
         
             var_dump($reward);exit;
