@@ -28,7 +28,6 @@ class Eventtimestatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'date'], 'required'],
             [['id'], 'integer'],
             [['isCreate'], 'string'],
             [['createtime'], 'safe'],
