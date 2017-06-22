@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -30,9 +30,9 @@ class Reward extends \yii\db\ActiveRecord
     {
         return [
             [['price', 'rewardStatus', 'userid'], 'required'],
-            [['price', 'userid'], 'integer'],
+            [['price', 'userid' ,'rewardStatus'], 'integer'],
             [['rewardTime'], 'safe'],
-            [['rewardStatus'], 'string', 'max' => 255],
+
         ];
     }
 
