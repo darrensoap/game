@@ -22,6 +22,10 @@ class RewardController extends \yii\web\Controller
         for($i=0 ; $i<$sizeReward ; $i++)
         {
             for($j=0 ; $j<$sizeReward ; $j++)
+
+            $sizeReward = count($reward);
+            for($i=0 ; $i<$sizeReward ; $i++)
+
             {
                 if($userReward[$i]['rewardStatus'] < $userReward[$j]['rewardStatus'] )
                 {
@@ -30,11 +34,12 @@ class RewardController extends \yii\web\Controller
                     $userReward[$j] = $temp;
                 }
             }
+
         }
         
         //var_dump($userReward);exit;
-        
-        if(Yii::$app->request->isPost)
+
+        if(Yii::$app->request->isAjax)
         {
             $allUser = UserNumber::find()->where(['between', 'time', $yesterday, $today])->orderBy('time')->all();
             //$randomFirst = rand(1,99);
@@ -50,7 +55,7 @@ class RewardController extends \yii\web\Controller
                 * merge alluser number together
                 * in condition of ranking
                 * - 1st three correct with firstprice in asscending order
-                * - 2rd three random correct with firstprice 
+                * - 2rd three random correct with firstprice
                 * - 3th two random correct in firstprice
                 * - consalation one random correct in firstprice
                 * verify wheter user get which ranking
@@ -83,7 +88,7 @@ class RewardController extends \yii\web\Controller
                     $reward[$k]['time'] = $userPrice->time;
                 }
             }
-            
+
             foreach($reward as $data)
             {
                  $model = new Reward;
