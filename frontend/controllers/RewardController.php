@@ -14,27 +14,10 @@ class RewardController extends \yii\web\Controller
     {
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
-        $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
-       
-        $sizeReward = count($userReward);
-        /*
-         *storing by ranking
-         */
-        for($i=0 ; $i<$sizeReward ; $i++)
-        {
-            for($j=0 ; $j<$sizeReward ; $j++)
-            {
-                if($userReward[$i]['rewardStatus'] < $userReward[$j]['rewardStatus'] )
-                {
-                    $temp = $userReward[$i];
-                    $userReward[$i] = $userReward[$j];
-                    $userReward[$j] = $temp;
-                }
-            }
-
-        }
-        
-        //var_dump($userReward);exit;
+        //$userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
+        $arrangeUser = $this->Sorting($userReward);
+      
+        var_dump($arrangeUser);exit;
 
         if(Yii::$app->request->isAjax)
         {
@@ -114,5 +97,36 @@ class RewardController extends \yii\web\Controller
         }
         return $this->render('index');
     }
+    /*
+    public function Sorting($userReward)
+    {
+        $sizeReward = count($userReward);
+        
+         //storing by ranking
+         
+        for($i=0 ; $i<$sizeReward ; $i++)
+        {
+            for($j=0 ; $j<$sizeReward ; $j++)
+            {
+                if($userReward[$i]['rewardStatus'] < $userReward[$j]['rewardStatus'] )
+                {
+                    $temp = $userReward[$i];
+                    $userReward[$i] = $userReward[$j];
+                    $userReward[$j] = $temp;
+                }
+            }
+
+        }
+        
+        if($userReward[1]['rewardStatus'] == 1 )
+        {
+            $userReward[1]['price'] = 50;
+            $userReward[1]['rewardStatus'] = 2;
+        }
+        
+        
+        return $userReward;
+    }
+    */
 
 }

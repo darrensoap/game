@@ -122,7 +122,7 @@ function callAjax(){
 
 }
 
-var countDownDate = new Date("Jun 22, 2017 16:22:00").getTime();
+var countDownDate = new Date("Jun 22, 2017 16:40:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
