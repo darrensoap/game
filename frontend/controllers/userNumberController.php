@@ -34,7 +34,7 @@ class UsernumberController extends \yii\web\Controller
 
             if($userDate == $todayDate)
             {
-                return $this->redirect(['site/index']);
+                 return $this->render('index' ,['user' => $user]);
             }
             else{
                  $model = new UserNumber; 

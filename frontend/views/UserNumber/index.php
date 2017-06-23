@@ -16,6 +16,7 @@ $this->title = 'Mini Game';
 
 <body>
   <p id="timer"></p>
+  <?php if(empty($user)) :?>
   <div class="gamecontainer">
     <div class="scroll">
       <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
@@ -36,5 +37,15 @@ $this->title = 'Mini Game';
           <p>You have finshied your chance. Please wait the result come out.Thank You! </p>
       </div>
   </div>
+  <?php else :?>
+  <div class="gamecontainer">
+    <div class="scroll">
+      <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
+    </div>
+        <div class="result1"><?php echo $user['fNum']?></div>
+        <div class="result2"><?php echo $user['sNum']?></span></div>
+        <div class="result3"><?php echo $user['tNum']?></span></div>
+  </div>
+  <?php endif ;?>
 </body>
 </html>
