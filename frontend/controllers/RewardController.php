@@ -16,8 +16,11 @@ class RewardController extends \yii\web\Controller
         $today =  date('Y-m-d 17:00:00');
         $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
         //$arrangeUser = $this->Sorting($userReward);
-
-        //var_dump($userReward);exit;
+        if(empty($userReward))
+        {
+            $beforeYesterday = date('Y-m-d 17:00:00', strtotime(' -2 day'));
+            $userReward = Reward::find()->where(['between' , 'rewardTime' , $beforeYesterday , $yesterday])->all();
+        }
 
         if(Yii::$app->request->isAjax)
         {
@@ -95,7 +98,7 @@ class RewardController extends \yii\web\Controller
             }
 
         }
-        return $this->render('index');
+        return $this->render('index' , ['reward' => $userReward]);
     }
     /*
     public function Sorting($userReward)
@@ -136,7 +139,7 @@ class RewardController extends \yii\web\Controller
         $pageSize = Yii::$app->params['pageSize']['reward'];
         $pager = new Pagination(['totalCount' => $count , 'pageSize' => $pageSize]);
         $rewards = $model->offset($pager->offset)->limit($pager->limit)->all();
-        return $this->render("rewards" , ['rewards' => $rewards , 'pager' => $pager]);
+        return $this->render("index" , ['rewards' => $rewards , 'pager' => $pager]);
     }
 
 }
