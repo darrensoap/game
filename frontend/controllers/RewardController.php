@@ -19,31 +19,26 @@ class RewardController extends \yii\web\Controller
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
         $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today]);
+        $pager = $this->Pager($userReward);
+        $userReward = $this->PagePagination($userReward,$pager);
+        
         if(empty($userReward))
         {
             $beforeYesterday = date('Y-m-d 17:00:00', strtotime(' -2 day'));
             $userReward = Reward::find()->where(['between' , 'rewardTime' , $beforeYesterday , $yesterday]);
+            $pager = $this->Pager($userReward);
+            $userReward = $this->PagePagination($userReward,$pager);
         }
-
         /*
          *detect whether is the first day or event start?
          */
+        
         if(empty($userReward))
         {
              return $this->render('index');
         }
-var_dump($userReward);exit;
 
-
-        $count = count($userReward);
-        $pageSize = Yii::$app->params['pageSize']['reward'];
-        $pager = new Pagination(['totalCount' => $count , 'pageSize' => $pageSize]);
-        $rewards = $userReward->offset($pager->offset)->limit($pager->limit)->all();
-
-        $rewards = $this->Sorting($rewards);
-
-        return $this->render("index" , ['rewards' => $rewards , 'pager' => $pager]);
-
+        $rewards = $this->Sorting($userReward);
         if(Yii::$app->request->isAjax)
         {
             /*
@@ -120,7 +115,8 @@ var_dump($userReward);exit;
             }
 
         }
-        return $this->render('index' , ['reward' => $arrangeUser]);
+        
+       return $this->render("index" , ['rewards' => $rewards , 'pager' => $pager]);
     }
 
     public function Sorting($userReward)
@@ -144,6 +140,21 @@ var_dump($userReward);exit;
 
         }
         return $userReward;
+    }
+    
+    public function Pager($data)
+    {
+        $count = count($data);
+        $pageSize = Yii::$app->params['pageSize']['reward'];
+        $pager = new Pagination(['totalCount' => $count , 'pageSize' => $pageSize]);
+        
+        return $pager;
+    }
+    
+    public function PagePagination($data, $pager)
+    {
+        $data = $data->offset($pager->offset)->limit($pager->limit)->all();
+        return $data;
     }
 
 

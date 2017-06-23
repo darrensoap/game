@@ -14,7 +14,7 @@ use yii\helpers\Html;
                 <th class="span2">
                     <span class="line"></span>Prize amount</th>
                 <th class="span2">
-                    <span class="line"></span>Prize amount</th>
+                    <span class="line"></span>Submit Time</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@ use yii\helpers\Html;
                 <td><?php echo $reward->userid; ?></td>
                 <td><?php echo $reward->rewardStatus; ?></td>
                 <td><?php echo $reward->price; ?></td>
-                <td><?php echo date('Y-m-d H:i:s' , $reward->rewardTime); ?></td>
+                <td><?php echo $reward->rewardTime; ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
