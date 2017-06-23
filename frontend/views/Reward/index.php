@@ -2,7 +2,7 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 ?>
-<h1>reward/index</h1>
+<h1 class="rewardHeader">Reward Results</h1>
 
 <div class="row-fluid table">
     <table class="table table-hover">
