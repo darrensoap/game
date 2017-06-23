@@ -7,6 +7,9 @@ use yii\helpers\Html;
 
 <div class="rewardtable">
     <table class="table table-hover">
+	<?php if(empty($rewards)): ?>
+                    <p align = "center" style="font-size: 30px; color: white;">No Data</p>
+    <?php else : ?>
         <thead>
             <tr>
                 <th>User ID</th>
@@ -19,9 +22,6 @@ use yii\helpers\Html;
             </tr>
         </thead>
         <tbody>
-          <?php if(empty($rewards)): ?>
-                    <p align = "center">No Data</p>
-              <?php else : ?>
             <?php foreach($rewards as $reward): ?>
             <tr>
                 <td><?php echo $reward->username; ?></td>

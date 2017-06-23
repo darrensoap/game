@@ -38,7 +38,7 @@ class RewardController extends \yii\web\Controller
 
         if(empty($userReward))
         {
-             return $this->render('index');
+             return $this->render('index' ,['date' => $todayDay, 'pager' => $pager]);
         }
 
         $rewards = $this->Sorting($userReward);
@@ -128,7 +128,6 @@ class RewardController extends \yii\web\Controller
             }
 
         }
-
        return $this->render("index" , ['rewards' => $rewards , 'pager' => $pager , 'date'=> $todayDay]);
     }
 
