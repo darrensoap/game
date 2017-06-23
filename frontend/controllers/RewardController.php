@@ -6,6 +6,7 @@ use yii\web\Controller;
 use frontend\models\UserNumber;
 use frontend\models\Reward;
 use frontend\models\Eventtimestatus;
+use common\models\User;
 use yii\data\Pagination;
 use Yii;
 
@@ -39,6 +40,16 @@ class RewardController extends \yii\web\Controller
         }
 
         $rewards = $this->Sorting($userReward);
+        /*
+         *get ranking name from Reward Model
+         */
+        $ranking = Reward::$ranking;
+        foreach($rewards as $data)
+        {
+            $data['rewardStatus'] = $ranking[$data['rewardStatus']];
+            $data['username'] = User::find()->where('id = :id' ,[':id' => $data['userid']])->one()->username;
+        }
+        
         if(Yii::$app->request->isAjax)
         {
             /*

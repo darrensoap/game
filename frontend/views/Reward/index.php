@@ -20,7 +20,7 @@ use yii\helpers\Html;
         <tbody>
             <?php foreach($rewards as $reward): ?>
             <tr>
-                <td><?php echo $reward->userid; ?></td>
+                <td><?php echo $reward->username; ?></td>
                 <td><?php echo $reward->rewardStatus; ?></td>
                 <td><?php echo $reward->price; ?></td>
                 <td><?php echo $reward->rewardTime; ?></td>

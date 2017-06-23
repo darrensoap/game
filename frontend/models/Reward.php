@@ -20,6 +20,7 @@ class Reward extends \yii\db\ActiveRecord
     const THRIDPRICE = 3;
     const CONSOLATIONPRICE = 4;
     
+    public $username;
     public static $ranking = [
         self::FIRSTPRICE => 'First Price',
         self::SECONDPRICE => 'Second Price',
