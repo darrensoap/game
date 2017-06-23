@@ -12,6 +12,9 @@ class RewardController extends \yii\web\Controller
 {
     public function actionIndex()
     {
+        /*
+         *detect wheter is today or yesterday
+         */
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
         $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
@@ -22,6 +25,13 @@ class RewardController extends \yii\web\Controller
             $userReward = Reward::find()->where(['between' , 'rewardTime' , $beforeYesterday , $yesterday])->all();
         }
         
+        /*
+         *detect whether is the first day or event start?
+         */
+        if(empty($userReward))
+        {
+             return $this->render('index');
+        }
         if(Yii::$app->request->isAjax)
         {
             /*
