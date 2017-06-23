@@ -1,7 +1,10 @@
 <?php
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+$this->title = 'Reward';
 ?>
+?>
+
 <h1 class="rewardHeader">Reward Results</h1>
 <p class="todayDate"><?php echo $date;?></p>
 

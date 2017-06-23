@@ -3,6 +3,8 @@ use frontend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 AppAsset::register($this);
+$this->title = 'Mini Game';
+?>
 ?>
 <!doctype html>
 
