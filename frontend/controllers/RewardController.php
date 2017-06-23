@@ -117,8 +117,9 @@ class RewardController extends \yii\web\Controller
     {
         $sizeReward = count($userReward);
 
-         //storing by ranking
-
+         /*
+          *sorting ranking
+          */
         for($i=0 ; $i<$sizeReward ; $i++)
         {
             for($j=0 ; $j<$sizeReward ; $j++)
