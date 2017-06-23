@@ -6,6 +6,7 @@ use yii\web\Controller;
 use frontend\models\UserNumber;
 use frontend\models\Reward;
 use frontend\models\Eventtimestatus;
+use yii\data\Pagination;
 use Yii;
 
 class RewardController extends \yii\web\Controller
@@ -17,11 +18,11 @@ class RewardController extends \yii\web\Controller
          */
         $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
         $today =  date('Y-m-d 17:00:00');
-        $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
+        $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today]);
         if(empty($userReward))
         {
             $beforeYesterday = date('Y-m-d 17:00:00', strtotime(' -2 day'));
-            $userReward = Reward::find()->where(['between' , 'rewardTime' , $beforeYesterday , $yesterday])->all();
+            $userReward = Reward::find()->where(['between' , 'rewardTime' , $beforeYesterday , $yesterday]);
         }
 
         /*
@@ -31,8 +32,17 @@ class RewardController extends \yii\web\Controller
         {
              return $this->render('index');
         }
-        
-        $arrangeUser = $this->Sorting($userReward);
+var_dump($userReward);exit;
+
+
+        $count = count($userReward);
+        $pageSize = Yii::$app->params['pageSize']['reward'];
+        $pager = new Pagination(['totalCount' => $count , 'pageSize' => $pageSize]);
+        $rewards = $userReward->offset($pager->offset)->limit($pager->limit)->all();
+
+        $rewards = $this->Sorting($rewards);
+
+        return $this->render("index" , ['rewards' => $rewards , 'pager' => $pager]);
 
         if(Yii::$app->request->isAjax)
         {
@@ -112,7 +122,7 @@ class RewardController extends \yii\web\Controller
         }
         return $this->render('index' , ['reward' => $arrangeUser]);
     }
-    
+
     public function Sorting($userReward)
     {
         $sizeReward = count($userReward);
@@ -135,7 +145,7 @@ class RewardController extends \yii\web\Controller
         }
         return $userReward;
     }
-    
+
 
     public function actionReward()
     {
