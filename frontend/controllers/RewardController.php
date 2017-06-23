@@ -61,12 +61,10 @@ class RewardController extends \yii\web\Controller
             if(empty($todayCreate))
             {
                 $allUser = UserNumber::find()->where(['between', 'time', $yesterday, $today])->orderBy('time')->all();
-                //$randomFirst = rand(1,99);
-                //$randomSecond = rand(1,99);
-                //$randomLst = rand(1,99);
-                $randomFirst = 69;
-                $randomSecond = 85;
-                $randomLst = 49;
+                $randomFirst = rand(1,99);
+                $randomSecond = rand(1,99);
+                $randomLst = rand(1,99);
+               
                 $firstPrice = $randomFirst.'.'.$randomSecond.'.'.$randomLst;
 
                 $reward = [];

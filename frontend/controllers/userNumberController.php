@@ -20,9 +20,11 @@ class UsernumberController extends \yii\web\Controller
             if finshid back to index
             else create new model
          */
-        $today = date('Y-m-d');
-      
-        $user = UserNumber::find()->where('userid = :id',[':id' => Yii::$app->user->identity->id])->one();
+        $todayDate = date('Y-m-d');
+        $yesterday = date('Y-m-d 17:00:00', strtotime(' -1 day'));
+        $today =  date('Y-m-d 17:00:00');
+        
+        $user = UserNumber::find()->where('userid = :id ',[':id' => Yii::$app->user->identity->id])->andwhere(['between', 'time', $yesterday, $today])->one();
         if(empty($user))
         {
              $model = new UserNumber;
@@ -30,7 +32,7 @@ class UsernumberController extends \yii\web\Controller
         else{
             $userDate = date('Y-m-d', strtotime($user->time));
 
-            if($userDate == $today)
+            if($userDate == $todayDate)
             {
                 return $this->redirect(['site/index']);
             }
