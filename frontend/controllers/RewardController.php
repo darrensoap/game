@@ -16,7 +16,7 @@ class RewardController extends \yii\web\Controller
         $today =  date('Y-m-d 17:00:00');
         $userReward = Reward::find()->where(['between', 'rewardTime', $yesterday, $today])->all();
         //$arrangeUser = $this->Sorting($userReward);
-      
+
         //var_dump($userReward);exit;
 
         if(Yii::$app->request->isAjax)
@@ -35,7 +35,7 @@ class RewardController extends \yii\web\Controller
                 $randomSecond = 85;
                 $randomLst = 49;
                 $firstPrice = $randomFirst.'.'.$randomSecond.'.'.$randomLst;
-    
+
                 $reward = [];
                 /*
                     * merge alluser number together
@@ -55,7 +55,7 @@ class RewardController extends \yii\web\Controller
                         $reward[$k]['price'] = 100;
                         $reward[$k]['ranking'] = 1;
                         $reward[$k]['time'] = $userPrice->time;
-    
+
                     } else if((substr_count($mergerUsernum, $randomFirst) > 0) && (substr_count($mergerUsernum, $randomSecond) > 0) && (substr_count($mergerUsernum, $randomLst) > 0) ){
                         $reward[$k]['id'] = $userPrice->userid;
                         $reward[$k]['price'] = 50;
@@ -74,7 +74,7 @@ class RewardController extends \yii\web\Controller
                         $reward[$k]['time'] = $userPrice->time;
                     }
                 }
-    
+
                 foreach($reward as $data)
                 {
                     $model = new Reward;
@@ -85,7 +85,7 @@ class RewardController extends \yii\web\Controller
                     $model->save();
                 }
                 /*
-                 *create a record to validate 
+                 *create a record to validate
                  *userNumber table create?
                  */
                 $recordToday = new Eventtimestatus;
@@ -93,7 +93,7 @@ class RewardController extends \yii\web\Controller
                 $recordToday->isCreate = 1;
                 $recordToday->save(false);
             }
-          
+
         }
         return $this->render('index');
     }
@@ -101,9 +101,9 @@ class RewardController extends \yii\web\Controller
     public function Sorting($userReward)
     {
         $sizeReward = count($userReward);
-        
+
          //storing by ranking
-         
+
         for($i=0 ; $i<$sizeReward ; $i++)
         {
             for($j=0 ; $j<$sizeReward ; $j++)
@@ -117,16 +117,26 @@ class RewardController extends \yii\web\Controller
             }
 
         }
-        
+
         if($userReward[1]['rewardStatus'] == 1 )
         {
             $userReward[1]['price'] = 50;
             $userReward[1]['rewardStatus'] = 2;
         }
-        
-        
+
+
         return $userReward;
     }
     */
+
+    public function actionReward()
+    {
+        $model = Reward::find();
+        $count = $model->count();
+        $pageSize = Yii::$app->params['pageSize']['reward'];
+        $pager = new Pagination(['totalCount' => $count , 'pageSize' => $pageSize]);
+        $rewards = $model->offset($pager->offset)->limit($pager->limit)->all();
+        return $this->render("rewards" , ['rewards' => $rewards , 'pager' => $pager]);
+    }
 
 }
