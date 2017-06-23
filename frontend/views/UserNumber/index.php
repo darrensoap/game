@@ -43,8 +43,8 @@ $this->title = 'Mini Game';
       <img id="scroll" src="<?php echo Yii::$app->params['imagepath'].'/scroll.PNG'?>"/>
     </div>
         <div class="result1"><?php echo $user['fNum']?></div>
-        <div class="result2"><?php echo $user['sNum']?></span></div>
-        <div class="result3"><?php echo $user['tNum']?></span></div>
+        <div class="result2"><?php echo $user['sNum']?></div>
+        <div class="result3"><?php echo $user['tNum']?></div>
   </div>
   <?php endif ;?>
 </body>
