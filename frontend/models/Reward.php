@@ -15,6 +15,17 @@ use Yii;
  */
 class Reward extends \yii\db\ActiveRecord
 {
+    const FIRSTPRICE = 1;
+    const SECONDPRICE = 2;
+    const THRIDPRICE = 3;
+    const CONSOLATIONPRICE = 4;
+    
+    public static $ranking = [
+        self::FIRSTPRICE => 'First Price',
+        self::SECONDPRICE => 'Second Price',
+        self::THRIDPRICE => 'Third Price',
+        self::CONSOLATIONPRICE => 'Consolation Price',
+    ];
     /**
      * @inheritdoc
      */
@@ -26,6 +37,7 @@ class Reward extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    
     public function rules()
     {
         return [
